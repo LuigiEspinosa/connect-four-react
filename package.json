@@ -7,55 +7,27 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "test": "react-scripts test",
-    "coverage": "react-scripts test --coverage --reporters=jest-junit --coverageDirectory=results/ --watchAll=false"
+    "test": "vitest",
+    "text:ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
+    "gsap": "^3.14.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.30.3"
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^22.19.15",
     "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.7.0",
-    "jest-junit": "^13.2.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "jsdom": "^26.1.0",
     "typescript": "^5.9.3",
-    "vite": "^6.4.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "jest": {
-    "coverageReporters": [
-      "lcov",
-      [
-        "text",
-        {
-          "skipFull": true
-        }
-      ]
-    ]
-  },
-  "browserlist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "vite": "^6.4.1",
+    "vitest": "^3.2.4"
   }
 }
