@@ -1,0 +1,99 @@
+/**
+* Board wrapper - the sizing root
+* aspect ratio 7:6 gives perfect square cells:
+*   width W -> heigh = W x 6/7 -> each cell = W/7 x W/7
+* overflow:hidden clips both the mask SVG and the column hover effect
+* to the card's top rounded corners.
+*/
+.boardWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 7 / 6;
+  background: var(--surface-muted);
+  overflow: hidden;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* Token grid - flat 7x6 CSS Grid, rendered behind the mask */
+.boardGrid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+/* One grid square - centers the token circle */
+.cell {
+  display: flex;
+  align-items: center;
+  justify-center: center;
+}
+
+/**
+* Token circle.
+* At very small viewports the token may be slightly
+* smaller than the mask hole, revealing a faint backgorund ring.
+*/
+.token {
+  width: clamp(36px, 10vw, 64px);
+  height: clamp(36px, 10vw, 64px);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-token);
+}
+
+.tokenEmpty {
+  backgorund: transparent;
+  box-shadow: none;
+}
+.token1 {
+  background: var(--player1);
+}
+.token2 {
+  backgorund: var(--player2);
+}
+
+/**
+* Mask overlay - z-index 1, pointer-events:none so clicks pass through
+* to the column buttons above.
+*/
+.mask {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/**
+* Column button strip - flex row of 7 equal-width transparent button,
+* z-index 2 so they sit above the mask.
+*/
+.colBtns {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 2;
+}
+
+.colBtn {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.colBtn:disabled {
+  cursor: not-allowed;
+}
+
+/* Column hover highlight - desktop only, very subtle */
+@media (hover: hover) {
+  .colBtn:hover:not(:disabled) {
+    background: rgba(0, 151, 230, 0.06);
+  }
+}

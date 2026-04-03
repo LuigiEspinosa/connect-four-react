@@ -1,5 +1,8 @@
 import styles from "./App.module.css";
 import { useGameStore } from "./store/game.store";
+import { emptyBoard } from "./types/game";
+
+import { Board } from "./components/Board/Board";
 
 export default function App() {
   const phase = useGameStore((s) => s.phase);
@@ -10,7 +13,7 @@ export default function App() {
 
   return (
     <div className={styles.app}>
-      {phase === "MENU" && <button onClick={goToSetup}>Start</button>}
+      {phase === "MENU" && <Board board={emptyBoard()} />}
       {phase === "SETUP" && (
         <div>
           <button onClick={() => startGame("local")}>PvP</button>
