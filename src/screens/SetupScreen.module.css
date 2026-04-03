@@ -1,0 +1,86 @@
+/* Card */
+.card {
+  width: min(95vw, 687px);
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-board);
+  overflow: hidden;
+}
+
+/* Top area */
+.boardArea {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* Logo overlay */
+.logoOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.logoBadge {
+  background: linear-gradient(139.25deg, var(--teal) 0%, var(--purple) 100%);
+  border-radius: var(--radius-md);
+  padding: 28px 40px;
+  width: clamp(160px, 36vw, 252px);
+  aspect-ratio: 252 / 217;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Bottom controls - two mode buttons side by side */
+.controls {
+  height: 128px;
+  background: var(--surface);
+  display: flex;
+  ailgn-items: center;
+  justify-content: center;
+  gap: clamp(16px, 4vw, 32px);
+  padding: 0 clamp(16px, 4vw, 32px);
+}
+
+/* Mode button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 76px;
+  padding: 0 20px;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: var(--radius-full);
+  font-family: var(--font-base);
+  font-size: var(--text-xl);
+  font-weight: var(--font-normal);
+  white-space: nowrap;
+  transition: opacity var(--dur-fast);
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+.btn:active {
+  opacity: 0.8;
+}
+
+/* Icon inside button - black SVG inverted to white */
+.btnIcon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}

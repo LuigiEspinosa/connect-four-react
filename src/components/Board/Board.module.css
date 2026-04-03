@@ -33,7 +33,7 @@
 /**
 * Token circle.
 * At very small viewports the token may be slightly
-* smaller than the mask hole, revealing a faint backgorund ring.
+* smaller than the mask hole, revealing a faint background ring.
 */
 .token {
   width: clamp(36px, 10vw, 64px);
@@ -43,14 +43,14 @@
 }
 
 .tokenEmpty {
-  backgorund: transparent;
+  background: transparent;
   box-shadow: none;
 }
 .token1 {
   background: var(--player1);
 }
 .token2 {
-  backgorund: var(--player2);
+  background: var(--player2);
 }
 
 /**
